@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ShuTongWenIME</RootNamespace>
+    <AssemblyName>ShuTongWenIME</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)third_party\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  
+  <ItemGroup>
+    <!-- Core -->
+    <ClCompile Include="src\core\*.cpp" />
+    
+    <!-- Utils -->
+    <ClCompile Include="src\utils\*.cpp" />
+    
+    <!-- Platform -->
+    <ClCompile Include="src\platform\*.cpp" />
+    
+    <!-- IME -->
+    <ClCompile Include="src\ime\*.cpp" />
+    <ClCompile Include="src\ime\semantic\*.cpp" />
+    <ClCompile Include="src\ime\cache\*.cpp" />
+    <ClCompile Include="src\ime\adaptive\*.cpp" />
+    <ClCompile Include="src\ime\perception\*.cpp" />
+    <ClCompile Include="src\ime\pipeline\*.cpp" />
+    <ClCompile Include="src\ime\tracing\*.cpp" />
+    <ClCompile Include="src\ime\replay\*.cpp" />
+    <ClCompile Include="src\ime\language\*.cpp" />
+    
+    <!-- TSF -->
+    <ClCompile Include="src\tsf\*.cpp" />
+    
+    <!-- IPC -->
+    <ClCompile Include="src\ipc\*.cpp" />
+    
+    <!-- UI -->
+    <ClCompile Include="src\ui\*.cpp" />
+    
+    <!-- Telemetry -->
+    <ClCompile Include="src\telemetry\*.cpp" />
+    
+    <!-- Compatibility -->
+    <ClCompile Include="src\compatibility\*.cpp" />
+    
+    <!-- Watchdog -->
+    <ClCompile Include="src\watchdog\*.cpp" />
+    
+    <!-- Testing -->
+    <ClCompile Include="src\testing\*.cpp" />
+  </ItemGroup>
+  
+  <Target Name="Build">
+    <Message Text="Building ShuTongWen IME..." Importance="High" />
+    <Message Text="Configuration: $(Configuration)" Importance="High" />
+    <Message Text="Platform: $(Platform)" Importance="High" />
+  </Target>
+</Project>

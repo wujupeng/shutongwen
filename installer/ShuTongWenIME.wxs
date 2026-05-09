@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Name="ShuTongWen IME" Language="2052" Version="1.0.0.0" Manufacturer="ShuTongWen" UpgradeCode="PUT-GUID-HERE">
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+        <MajorUpgrade DowngradeErrorMessage="较新版本的 [ProductName] 已安装。" />
+        <MediaTemplate />
+
+        <Feature Id="ProductFeature" Title="ShuTongWen IME" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+        </Feature>
+
+        <CustomAction Id="RegisterIME" BinaryKey="ShuTongWenIME.dll" DllEntry="DllRegisterServer" Execute="deferred" Return="check" />
+        <InstallExecuteSequence>
+            <Custom Action="RegisterIME" After="InstallFiles">NOT Installed</Custom>
+        </InstallExecuteSequence>
+    </Product>
+
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="ShuTongWen">
+                    <Directory Id="IMEDIR" Name="IME">
+                    </Directory>
+                </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ApplicationProgramsFolder" Name="ShuTongWen" />
+            </Directory>
+        </Directory>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="ProductComponents" Directory="IMEDIR">
+            <Component Id="ShuTongWenIME.dll" Guid="*">
+                <File Id="ShuTongWenIME.dll" Source="$(var.SourceDir)\build\bin\ShuTongWenIME.dll" KeyPath="yes" />
+                <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\CTF\TIP\{12345678-1234-1234-1234-123456789ABC}" Name="Description" Value="ShuTongWen IME" Type="string" />
+                <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\CTF\TIP\{12345678-1234-1234-1234-123456789ABC}" Name="Language" Value="0x0804" Type="integer" />
+                <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\CTF\TIP\{12345678-1234-1234-1234-123456789ABC}" Name="Profile" Value="{12345678-1234-1234-1234-123456789ABC}" Type="string" />
+                <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\CTF\TIP\{12345678-1234-1234-1234-123456789ABC}" Name="ShowStatus" Value="1" Type="integer" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Name="ShuTongWen IME" Language="1033" Version="1.0.0.0" Manufacturer="ShuTongWen" UpgradeCode="PUT-GUID-HERE">
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate />
+
+        <Feature Id="ProductFeature" Title="ShuTongWen IME" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+        </Feature>
+
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="ShuTongWen">
+                    <Directory Id="dict" Name="dict" />
+                </Directory>
+            </Directory>
+            <Directory Id="LocalAppDataFolder">
+                <Directory Id="AppDataFolder" Name="ShuTongWen">
+                    <Directory Id="AppDataDict" Name="dict" />
+                </Directory>
+            </Directory>
+        </Directory>
+
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+            <Component Id="ShuTongWenIME.dll" Guid="PUT-GUID-HERE">
+                <File Id="ShuTongWenIME.dll" Source="bin/$(var.Platform)/ShuTongWenIME.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="ShuTongWenCore.lib" Guid="PUT-GUID-HERE">
+                <File Id="ShuTongWenCore.lib" Source="lib/$(var.Platform)/ShuTongWenCore.lib" KeyPath="yes" />
+            </Component>
+            <Component Id="ShuTongWenUI.lib" Guid="PUT-GUID-HERE">
+                <File Id="ShuTongWenUI.lib" Source="lib/$(var.Platform)/ShuTongWenUI.lib" KeyPath="yes" />
+            </Component>
+            <Component Id="ShuTongWenUtils.lib" Guid="PUT-GUID-HERE">
+                <File Id="ShuTongWenUtils.lib" Source="lib/$(var.Platform)/ShuTongWenUtils.lib" KeyPath="yes" />
+            </Component>
+        </ComponentGroup>
+
+        <CustomAction Id="RegisterIME" BinaryKey="ShuTongWenIME.dll" DllEntry="RegisterIME" Execute="deferred" Return="check" />
+        <CustomAction Id="UnregisterIME" BinaryKey="ShuTongWenIME.dll" DllEntry="UnregisterIME" Execute="deferred" Return="check" />
+
+        <InstallExecuteSequence>
+            <Custom Action="RegisterIME" After="InstallFiles" />
+            <Custom Action="UnregisterIME" Before="RemoveFiles" />
+        </InstallExecuteSequence>
+
+        <Property Id="Platform">x64</Property>
+    </Product>
+</Wix>

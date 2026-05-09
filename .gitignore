@@ -1,0 +1,16 @@
+build/
+*.log
+*.pdb
+*.dll
+*.exe
+*.lib
+*.obj
+*.ilk
+*.exp
+.vscode/
+.vs/
+*.user
+ThirdParty/
+packages/
+bin/
+lib/
