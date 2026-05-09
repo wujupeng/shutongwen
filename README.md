@@ -30,14 +30,17 @@
 
 ## 安装
 
-### 方法一：EXE 安装程序（推荐）
+### 方法一：离线安装包（推荐）
 
-1. 下载最新版本：[ShuTongWenIME_Setup.exe](https://github.com/wujupeng/shutongwen/releases)
+1. 下载最新版本：`ShuTongWenIME_Offline.exe`
+2. **双击**运行安装程序（会自动请求管理员权限）
+3. **自动完成**：安装后输入法会自动启用，无需手动配置
+
+### 方法二：标准安装程序
+
+1. 下载：`ShuTongWenIME_Setup.exe` + `ShuTongWenIME.dll`
 2. 运行安装程序（需要管理员权限）
-3. 启用输入法：
-   - 设置 → 时间和语言 → 语言和区域
-   - 添加语言 → 搜索 "中文(中国)"
-   - 点击选项 → 选择 "书同文输入法"
+3. 安装完成后自动启用
 
 #### 静默安装
 
