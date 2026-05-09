@@ -1,10 +1,13 @@
-# ShuTongWen IME
+# 书同文输入法 (ShuTongWen IME)
+
+> 书同文，车同轨 —— 秦始皇统一度量衡，我们统一中文输入体验。
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/wujupeng/shutongwen)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/wujupeng/shutongwen/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows%2011-blue)](https://www.microsoft.com/zh-cn/d/windows-11-home/d76qx4bznwk4)
 
-书同文输入法 - 书同文，车同轨。一个现代化的 Windows 11 中文输入法
+一款专为 Windows 11 设计的现代化中文输入法，基于 C++20 开发，支持 ARM64/x64 架构，提供高性能、智能的输入体验。
 
 ## 特性
 
