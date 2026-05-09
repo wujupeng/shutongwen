@@ -7,14 +7,21 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-blue)](https://www.microsoft.com/zh-cn/d/windows-11-home/d76qx4bznwk4)
 
-一款专为 Windows 11 设计的现代化中文输入法，基于 C++20 开发，支持 ARM64/x64 架构，提供高性能、智能的输入体验。
+一款专为 Windows 11 设计的现代化中文输入法。作为操作系统常驻基础设施，我们追求 **"高效 + 稳定"**，让用户忘记输入法的存在。
+
+基于 C++20 开发，支持 ARM64/x64 架构，采用 Runtime-first 路线。
+
+## 核心宗旨
+
+**高效 + 稳定** —— 这是我们的生命线
 
 ## 特性
 
-- ✅ **高性能** - 基于 C++20 开发，输入响应迅速
-- ✅ **智能输入** - 支持拼音输入、中英混输、Emoji联想
-- ✅ **轻量级** - 独立进程架构，稳定性高
-- ✅ **跨应用兼容** - 完美支持 Chrome、VSCode、Office 等应用
+- ✅ **稳定性优先** - 独立进程架构，永不崩溃
+- ✅ **延迟一致性** - 输入体验平滑跟手
+- ✅ **跨应用兼容** - 完美支持 Chrome、VSCode、Office、游戏等
+- ✅ **高性能** - 基于 C++20 开发，响应迅速
+- ✅ **智能输入** - 支持拼音输入、中英混输
 
 ## 系统要求
 
